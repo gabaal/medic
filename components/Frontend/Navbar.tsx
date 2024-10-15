@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { HeartPulse } from "lucide-react";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,16 +12,12 @@ export default function Navbar() {
     <header className="bg-blue-950">
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8 border-b border-gray-400/30"
       >
-        <div className="flex lg:flex-1">
+        <div className="flex flex-col lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img
-              alt=""
-              src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-              className="h-8 w-auto"
-            />
+            <HeartPulse className="text-gray-50 h-12 w-12" />
           </a>
         </div>
         <div className="flex lg:hidden">
