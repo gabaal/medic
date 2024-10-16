@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
@@ -12,67 +11,151 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-const components: { title: string; href: string; description: string }[] = [
+const megaMenu = [
   {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+    title: "Top Booked",
+    services: [
+      {
+        title: "Telehealth",
+        slug: "telehealth",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+      {
+        title: "Video prescription refill",
+        slug: "Video prescription refill",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+      {
+        title: "In-person visit",
+        slug: "In-person visit",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+      {
+        title: "Urgent care visit",
+        slug: "Urgent care visit",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+    ],
   },
   {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
+    title: "Doctors",
+    services: [
+      {
+        title: "Telehealth",
+        slug: "telehealth",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+      {
+        title: "Video prescription refill",
+        slug: "Video prescription refill",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+      {
+        title: "In-person visit",
+        slug: "In-person visit",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+      {
+        title: "Urgent care visit",
+        slug: "Urgent care visit",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+    ],
   },
   {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    title: "Specialists",
+    services: [
+      {
+        title: "Telehealth",
+        slug: "telehealth",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+      {
+        title: "Video prescription refill",
+        slug: "Video prescription refill",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+      {
+        title: "In-person visit",
+        slug: "In-person visit",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+      {
+        title: "Urgent care visit",
+        slug: "Urgent care visit",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+    ],
   },
   {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+    title: "Symptoms",
+    services: [
+      {
+        title: "Telehealth",
+        slug: "telehealth",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+      {
+        title: "Video prescription refill",
+        slug: "Video prescription refill",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+      {
+        title: "In-person visit",
+        slug: "In-person visit",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+      {
+        title: "Urgent care visit",
+        slug: "Urgent care visit",
+        description:
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, sapiente.",
+      },
+    ],
   },
 ];
 
 export default function MegaMenu() {
   return (
     <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
+      <NavigationMenuList className="space-x-4">
+        {megaMenu.map((item, i) => {
+          return (
+            <NavigationMenuItem key={i}>
+              <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  {item.services.map((component) => (
+                    <ListItem
+                      key={component.title}
+                      title={component.title}
+                      href={`/services/${component.slug}`}
+                    >
+                      {component.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          );
+        })}
       </NavigationMenuList>
     </NavigationMenu>
   );
