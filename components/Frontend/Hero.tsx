@@ -15,7 +15,7 @@ const Hero = () => {
     "Acupuncturist",
   ];
   return (
-    <div className="bg-blue-950">
+    <div className="bg-blue-950 mt-[160px]">
       <div className="relative pb-[110px] pt-[50px] dark:bg-dark lg:pt-[50px] max-w-6xl mx-auto px-6">
         <div className="container ">
           <div className="-mx-4 flex flex-wrap">
